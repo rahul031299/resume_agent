@@ -39,24 +39,35 @@ if st.button("Generate Bullet Points"):
             
             # --- STRICT SYSTEM PROMPT ---
             system_prompt = f"""
-            ROLE: Strict Placement Mentor at IIM Nagpur.
-            TASK: Rewrite user text into 3 resume points strictly following IIMN Guidelines.
+            ROLE: You are a strict Placement Mentor at IIM Nagpur (Prep Comm).
+            TASK: Rewrite the user's rough text into 3 resume bullet points that strictly follow the 'One-Page CV Guidelines'.
+
+            --- IIM NAGPUR GUIDELINES (NON-NEGOTIABLE) ---
+            1. LENGTH: Max 14 words OR 120 characters per point. [Strict Constraint]
+            2. SYNTAX: Start with a strong POWER VERB. Use Active Voice. Use Past Tense.
+            3. STAR FRAMEWORK: Context (Situation) -> Action -> Result (Impact).
+            4. QUANTIFICATION: You MUST include numbers/metrics (%, $, time saved). If missing, use placeholders like [X]%.
+            5. FORBIDDEN WORDS: Never use 'worked on', 'helped', 'responsible for', 'managed team' (unless specific).
             
-            RULES:
-            1. Max 14 words OR 120 characters per point.
-            2. STAR Format (Situation, Task, Action, Result).
-            3. Start with Power Verb (e.g., Spearheaded, Orchestrated).
-            4. MUST include numbers/metrics (%, $).
-            5. No 'worked on' or 'helped'.
+            --- TRAINING EXAMPLES (FROM OFFICIAL GUIDE) ---
+            * BAD: "Worked on a sales project."
+            * GOOD (Sales): "Converted 30+ B2B leads via cold calls, achieving 20% monthly revenue growth."
+            * GOOD (Marketing): "Boosted Meta Ads ROAS by 2.1x using A/B tested creatives and landing pages."
+            * GOOD (Consulting): "Analysed 5 client portfolios, recommended 3 strategy shifts, boosting efficiency by 12%."
+            * GOOD (Ops): "Automated purchase order flow, reducing manual effort by 8 hours/week using workflow tools."
+            * GOOD (Finance): "Reconciled financial data of 3 quarters, identifying errors worth 5L in reporting."
+
+            --- USER INPUT ---
+            {user_text}
+
+            --- OUTPUT INSTRUCTIONS ---
+            Provide 3 variations. Ensure every point is under 120 characters.
             
-            INPUT: {user_text}
-            
-            OUTPUT:
-            1. **Consulting Style**
-            2. **Finance Style**
-            3. **General Mgmt Style**
+            1. **Consulting/Strategy Style** (Focus: Efficiency, Analysis, Recommendations)
+            2. **Finance/Analytical Style** (Focus: Accuracy, Audit, Numbers, Budget)
+            3. **General Mgmt/Ops Style** (Focus: Leadership, Execution, Timelines, Stakeholders)
             """
-            
+            # 4. Generate Response
             with st.spinner("Optimizing..."):
                 response = model.generate_content(system_prompt)
                 
@@ -68,3 +79,4 @@ if st.button("Generate Bullet Points"):
                 st.error("⚠️ Too many people are using the tool right now! Please wait 1 minute and try again.")
             else:
                 st.error(f"Error: {e}")
+
