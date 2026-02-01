@@ -39,8 +39,8 @@ if st.button("Generate Bullet Points"):
             
             # --- STRICT SYSTEM PROMPT ---
             system_prompt = f"""
-            ROLE: You are a strict Placement Mentor at IIM Nagpur (Prep Comm).
-            TASK: Rewrite the user's rough text into 3 resume bullet points that strictly follow the 'One-Page CV Guidelines'.
+            ROLE: IIM Nagpur Resume Optimization Engine.
+            TASK: Convert the input text into 3 high-impact resume bullet points.
 
             --- IIM NAGPUR GUIDELINES (NON-NEGOTIABLE) ---
             1. LENGTH: Max 14 words OR 120 characters per point. [Strict Constraint]
@@ -79,4 +79,5 @@ if st.button("Generate Bullet Points"):
                 st.error("⚠️ Too many people are using the tool right now! Please wait 1 minute and try again.")
             else:
                 st.error(f"Error: {e}")
+
 
