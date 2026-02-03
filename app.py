@@ -11,8 +11,8 @@ if "GEMINI_API_KEY" in st.secrets:
 else:
     api_key = st.sidebar.text_input("Enter Gemini API Key", type="password")
 
-st.title("IIM Nagpur Resume Action-Agent 🚀")
-st.markdown("**Transform rough notes into IIMN-compliant CV points.**")
+st.title("Prepco Resume Agent 🚀")
+st.markdown("**Transform rough notes into IIMN-compliant CV points**")
 
 user_text = st.text_area("Paste your rough experience here:", height=150)
 
@@ -79,5 +79,6 @@ if st.button("Generate Bullet Points"):
                 st.error("⚠️ Too many people are using the tool right now! Please wait 1 minute and try again.")
             else:
                 st.error(f"Error: {e}")
+
 
 
