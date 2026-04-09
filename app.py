@@ -26,7 +26,7 @@ if st.button("Generate Bullet Points"):
             genai.configure(api_key=api_key)
             
             # Auto-detect model logic
-            active_model_name = "gemini-pro"
+            active_model_name = "gemini-3.1 Flash-Lite"
             try:
                 for m in genai.list_models():
                     if 'generateContent' in m.supported_generation_methods:
