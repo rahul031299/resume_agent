@@ -43,7 +43,7 @@ if st.button("Generate Bullet Points"):
             TASK: Convert the input text into 3 high-impact resume bullet points.
 
             --- IIM NAGPUR GUIDELINES (NON-NEGOTIABLE) ---
-            1. LENGTH: Max 14 words OR 120 characters per point. [Strict Constraint]
+            1. LENGTH: Max 15 words, Min 12 words OR Max 120 characters,Min 110 characters per point. [Strict Constraint]
             2. SYNTAX: Start with a strong POWER VERB. Use Active Voice. Use Past Tense.
             3. STAR FRAMEWORK: Context (Situation) -> Action -> Result (Impact).
             4. QUANTIFICATION: You MUST include numbers/metrics (%, $, time saved). If missing, use placeholders like [X]%.
